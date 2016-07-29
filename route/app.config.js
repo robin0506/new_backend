@@ -10,6 +10,9 @@ angular.
         when('/welcome',{
         	template:'<welcome></welcome>'
         }).
+        when('/actManage-act',{
+          template:'<actmanage-act></actmanage-act>'
+        }).
         otherwise('/welcome');
 
     }

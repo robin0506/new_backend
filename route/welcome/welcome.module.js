@@ -1,3 +1,3 @@
 'use strict';
 
-angular.module('welcome',[]);
+angular.module('welcome',['core']);
