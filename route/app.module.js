@@ -1,3 +1,3 @@
 'use strict';
 
-angular.module('backEnd',['ngRoute','welcome','actManage']);
+angular.module('backEnd',['ngRoute','welcome','actManage','account']);

@@ -11,10 +11,25 @@ angular.
     	console.log(1);
     	myUtil.Commonmethod($scope, ngTableParams, NameService, URLService.getUrl
 			+ "/api/albatross/v1/adminapp/activities/?access_token="
-			+ "lixingbin:1469788958016:37231288f226204fdca53fdedc4b69dd" /*localStorage.getItem("usertoken")*/, 10);
+			+ /*"lixingbin:1470035095279:94204f2c5fd1b601347d7ae0a4e8c69c"*/ localStorage.getItem("usertoken"), 10);
     	console.log(2);
+    	$scope.add = function(){
+    		$location.path('/actManage-addact');
+    	}
     }]
   });
+
+angular.
+  module('actManage').
+  component('actmanageAddact',{
+  	templateUrl:'route/actManage/addAct.template.html',
+  	controller:['$scope','$http','ngTableParams','NameService','$location','URLService','myUtil',
+    function addAct($scope,$http,ngTableParams,NameService,$location,URLService,myUtil){
+    	$scope.submit = function(){
+    		console.log('1');
+    	}
+    }]
+  })
 
 /*
   mainApp.controller('activityController', function($scope, $http, ngTableParams,

@@ -2,7 +2,7 @@
             <h1 class="page-title">竞猜活动列表</h1>
 
 <div class="btn-toolbar">
-    <button class="btn btn-primary"><i class="icon-plus"></i> New User</button>
+    <button class="btn btn-primary" ng-click="add()"><i class="icon-plus"></i> New User</button>
     <button class="btn">Import</button>
     <button class="btn">Export</button>
   <div class="btn-group">
@@ -10,7 +10,7 @@
 </div>
 <div class="well">
 
-	<input class="input-xlarge" placeholder="搜索..." id="appendedInputButton" type="text">
+	<input class="input-xlarge" placeholder="搜索..." id="appendedInputButton" type="text" ng-model="filter.$">
   <table show-filter="true"  class="table" ng-table="tableParams">
               <tr ng-repeat="activity in $data">
                 <td data-title="'编号'" sortable="'id'" ng-model="activity.id">
@@ -21,7 +21,15 @@
                 <td data-title="'焦点图'"  sortable="'cover_image.toString()'"><a class="smallimage" rel="{{activity.cover_image.toString()}}"><img width="90px;" height="60px;" ng-src="{{activity.cover_image.toString()}}" /></a></td>
                 <td data-title="'活动是否置顶'" ng-model="activity.always_on_top" sortable="'always_on_top'">{{activity.always_on_top|isenable}}</td>
                 <td data-title="'活动是否推荐到社区'" ng-model="activity.is_recommend" sortable="'is_recommend'">{{activity.is_recommend|isrecommend}}</td>
-                <td data-title="'操作'" ><deleted style="cursor: pointer;"  type="{{activity.type}}" id="activity{{activity.id}}" ng-model="activity">删除</deleted> <a ng-href="#editactivity/{{activity.id}}/{{activity.type}}" style="cursor: pointer;">修改</a></td>
+                <td data-title="'操作'" >
+
+                  <!-- <deleted style="cursor: pointer;"  type="{{activity.type}}" id="activity{{activity.id}}" ng-model="activity">删除</deleted>
+
+                   <a ng-href="#editactivity/{{activity.id}}/{{activity.type}}" style="cursor: pointer;">修改</a> -->
+                 <a ng-href="#editactivity/{{activity.id}}/{{activity.type}}" role="button" data-toggle="modal"><i class="icon-pencil"></i></a>
+                  <delete style="cursor:pointer;" type="{{activity.type}}" id="{{activivty.id}}" ng-model="activity"><i class="icon-remove"></i></delete>
+              
+                </td>
               </tr>
 
 
@@ -100,7 +108,7 @@
       </tbody>
     </table> -->
 </div>
-<div class="pagination">
+<!-- <div class="pagination">
     <ul>
         <li><a href="#">Prev</a></li>
         <li><a href="#">1</a></li>
@@ -109,7 +117,7 @@
         <li><a href="#">4</a></li>
         <li><a href="#">Next</a></li>
     </ul>
-</div>
+</div> -->
 
 <div class="modal small hide fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-header">

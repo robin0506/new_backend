@@ -1,7 +1,7 @@
 
 angular.
   module('core').
-  service('NameService',['$http', '$filter',function ($http, $filter){
+  service('NameService',['$http', '$filter','myUtil',function ($http, $filter,myUtil){
   	
   	function filterData(data, filter) {
 		return $filter('filter')(data, filter);
@@ -42,7 +42,7 @@ angular.
 
 			$defer.resolve(transformedData);
 		}).error(function(data, status) {
-			ExceptionMethod(status, data);
+			myUtil.ExceptionMethod(status, data);
 		});
 	}	
   }]);
@@ -53,7 +53,7 @@ angular.
 
 angular.
   module('core').
-  service('PageService1',function($http,$filter){
+  service('PageService1',['$http','$filter','myUtil',function($http,$filter,myUtil){
 	function filterData(data, filter) {
 		return $filter('filter')(data, filter);
 	}
@@ -85,8 +85,8 @@ angular.
 									resp.data._content, filter, params);
 							$defer.resolve(transformedData);
 						}).error(function(data, status) {
-					ExceptionMethod(status, data);
+					myUtil.ExceptionMethod(status, data);
 				});	
 	};
 	
-  })
+  }])
